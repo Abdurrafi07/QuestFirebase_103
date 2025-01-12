@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "345581378702",
+    "project_id": "hangryproject-bef6f",
+    "storage_bucket": "hangryproject-bef6f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345581378702:android:777a4a6302b0e88df0bddf",
+        "android_client_info": {
+          "package_name": "com.example.p9cloudfirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOuouqTDIQfMYeyKlRbWTe2zR1bBvCG5k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
