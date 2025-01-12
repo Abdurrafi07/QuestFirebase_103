@@ -54,10 +54,16 @@ class NetworkRepositoryMhs (
 
     override suspend fun deleteMhs(Mahasiswa: Mahasiswa) {
         try {
-            firestore.collection("Mahasiswa")
-                .document(Mahasiswa.nim)
-                .delete()
+            val querySnapshot = firestore.collection("Mahasiswa")
+                .whereEqualTo("nim", Mahasiswa.nim)
+                /*.document(Mahasiswa.nim)
+                .delete()*/
+                .get()
                 .await()
+
+            for (document in querySnapshot.documents){
+                document.reference.delete().await()
+            }
         } catch (e: Exception){
             throw Exception("Gagal menghapus data mahasiswa: ${e.message}")
         }
