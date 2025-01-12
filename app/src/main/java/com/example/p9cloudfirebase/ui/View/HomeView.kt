@@ -82,6 +82,7 @@ fun HomeScreen(
             onDetailClick = onDetailClick,
             onDeleteClick = {
                 viewModel.getMhs()
+                viewModel.deleteMhs(it)
             }
             )
         }
