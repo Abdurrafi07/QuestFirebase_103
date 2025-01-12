@@ -1,6 +1,28 @@
 package com.example.p9cloudfirebase.ui.ViewModel
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
 import com.example.p9cloudfirebase.Model.Mahasiswa
+import com.example.p9cloudfirebase.Repository.RepositoryMhs
+
+class InsertViewModel (
+    private val repoMhs: RepositoryMhs
+) : ViewModel(){
+    var uiEvent: InsertUiState by mutableStateOf(InsertUiState())
+        private set
+
+    var uiState: FormState by mutableStateOf(FormState.idle)
+        private set
+
+    // Mengimplementasikan stste berdasarkan input pengguna
+    fun updateState(mahasiswaEvent: MahasiswaEvent){
+        uiEvent = uiEvent.copy(
+            insertUiEvent = mahasiswaEvent
+        )
+    }
+}
 
 sealed class FormState{
     object idle : FormState()
