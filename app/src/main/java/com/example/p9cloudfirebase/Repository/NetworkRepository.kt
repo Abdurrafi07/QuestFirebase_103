@@ -73,5 +73,4 @@ class NetworkRepositoryMhs (
             throw Exception ("Gagal mengupdate data mahasiswa: ${e.message} ")
         }
     }
-    }
 }

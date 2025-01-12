@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.p9cloudfirebase.Model.Mahasiswa
 import com.example.p9cloudfirebase.Repository.RepositoryMhs
 import kotlinx.coroutines.flow.catch
@@ -36,6 +37,15 @@ class HomeViewModel (
                         HomeUiState.Succes(it)
                     }
                 }
+        }
+    }
+    fun deleteMhs(Mahsiswa: Mahasiswa){
+        viewModelScope.launch {
+            try {
+                repoMhs.deleteMhs(Mahsiswa)
+            }catch (e: Exception){
+                mhsUiState = HomeUiState.Error(e)
+            }
         }
     }
 }
