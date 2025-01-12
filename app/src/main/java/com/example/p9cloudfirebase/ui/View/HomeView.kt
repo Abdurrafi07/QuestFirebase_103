@@ -46,6 +46,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.p9cloudfirebase.Model.Mahasiswa
 import com.example.p9cloudfirebase.R
+import com.example.p9cloudfirebase.ui.CustomWidget.TopAppBar
 import com.example.p9cloudfirebase.ui.ViewModel.HomeUiState
 import com.example.p9cloudfirebase.ui.ViewModel.HomeViewModel
 import com.example.p9cloudfirebase.ui.ViewModel.PenyediaViewModel
@@ -64,6 +65,16 @@ fun HomeScreen(
         modifier = modifier
             .nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
+            TopAppBar(
+                title = {
+                    Text(
+                        text = "Daftar Mahasiswa",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                },
+                modifier = Modifier.padding(top = 20.dp) // Menambahkan jarak atas
+            )
         },
         floatingActionButton = {
             FloatingActionButton(
@@ -75,16 +86,22 @@ fun HomeScreen(
             }
         }
     ) { innerPadding ->
-        HomeStatus(
-            homeUiState = viewModel.mhsUiState,
-            retryAction = { viewModel.getMhs() },
-            modifier = Modifier.padding(innerPadding),
-            onDetailClick = onDetailClick,
-            onDeleteClick = {
-                viewModel.getMhs()
-                viewModel.deleteMhs(it)
-            }
+        Box(
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxSize()
+        ) {
+            HomeStatus(
+                homeUiState = viewModel.mhsUiState,
+                retryAction = { viewModel.getMhs() },
+                modifier = Modifier.padding(innerPadding),
+                onDetailClick = onDetailClick,
+                onDeleteClick = {
+                    viewModel.getMhs()
+                    viewModel.deleteMhs(it)
+                }
             )
+        }
         }
 }
 @OptIn(ExperimentalMaterial3Api::class)
@@ -227,7 +244,8 @@ fun HomeStatus(
                     ListMahasiswa(
                         listMhs = homeUiState.data, modifier = Modifier.fillMaxWidth(),
                         onClick = { onDetailClick(it) },
-                        onDelete = { onDeleteClick(it) }
+                        onDelete = { mahasiswa ->
+                            deleteConfirmationRequired = mahasiswa }
                     )
                     deleteConfirmationRequired?.let { data ->
                         DeleteConfirmationDialog(
