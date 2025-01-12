@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.p9cloudfirebase.ui.Navigation.PengelolaHalaman
 import com.example.p9cloudfirebase.ui.View.HomeScreen
 import com.example.p9cloudfirebase.ui.ViewModel.PenyediaViewModel
 import com.example.p9cloudfirebase.ui.theme.P9CloudFirebaseTheme
@@ -22,8 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             P9CloudFirebaseTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomeScreen(
-                        navigateToItemEntry = {},
+                    PengelolaHalaman(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
