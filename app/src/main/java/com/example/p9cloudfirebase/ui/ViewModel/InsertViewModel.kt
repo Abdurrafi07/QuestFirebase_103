@@ -4,8 +4,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.p9cloudfirebase.Model.Mahasiswa
 import com.example.p9cloudfirebase.Repository.RepositoryMhs
+import kotlinx.coroutines.launch
 
 class InsertViewModel (
     private val repoMhs: RepositoryMhs
@@ -37,12 +39,29 @@ class InsertViewModel (
         uiEvent = uiEvent.copy(isEntryValid = errorState)
         return errorState.isValid()
     }
+
+    fun insertMhs(){
+
+        if (validateFields()){
+            viewModelScope.launch {
+                uiState = FormState.Loading
+                try {
+                    repoMhs.insertMhs(uiEvent.insertUiEvent.toMhsModel())
+                    uiState = FormState.Success("Data berhasil disimpan")
+                }catch (e: Exception){
+                    uiState = FormState.Error("Data gagal disimpan")
+                }
+            }
+        }else{
+            uiState = FormState.Error("Data tidak valid")
+        }
+    }
 }
 
 sealed class FormState{
     object idle : FormState()
-    object loading : FormState()
-    data class Succes(val message: String) : FormState()
+    object Loading : FormState()
+    data class Success(val message: String) : FormState()
     data class Error(val message: String) : FormState()
 }
 
