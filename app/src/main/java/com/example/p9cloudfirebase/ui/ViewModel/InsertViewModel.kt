@@ -2,6 +2,13 @@ package com.example.p9cloudfirebase.ui.ViewModel
 
 import com.example.p9cloudfirebase.Model.Mahasiswa
 
+sealed class FormState{
+    object idle : FormState()
+    object loading : FormState()
+    data class Succes(val message: String) : FormState()
+    data class Error(val message: String) : FormState()
+}
+
 data class InsertUiState(
     val insertUiEvent: MahasiswaEvent = MahasiswaEvent(),
     val isEntryValid: FormErrorState = FormErrorState(),
