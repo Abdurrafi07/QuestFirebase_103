@@ -2,6 +2,11 @@ package com.example.p9cloudfirebase.ui.ViewModel
 
 import com.example.p9cloudfirebase.Model.Mahasiswa
 
+data class InsertUiState(
+    val insertUiEvent: MahasiswaEvent = MahasiswaEvent(),
+    val isEntryValid: FormErrorState = FormErrorState(),
+)
+
 data class FormErrorState(
     val nim:String? = null,
     val nama:String? = null,
