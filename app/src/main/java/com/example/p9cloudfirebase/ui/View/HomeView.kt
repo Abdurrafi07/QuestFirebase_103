@@ -160,6 +160,7 @@ fun ListMahasiswa(
             items = listMhs,
             itemContent = {mhs ->
                 CardMhs(
+                    onDelete ={onDelete(mhs)},
                     mhs = mhs,
                     onClick = {onClick(mhs.nim)}
                 )
