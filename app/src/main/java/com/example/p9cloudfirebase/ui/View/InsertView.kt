@@ -88,7 +88,7 @@ fun InsertMhsView(
                         Text("Back")
                     }
                 },
-                modifier = Modifier.padding(top = 20.dp) // Menambahkan jarak atas
+                modifier = Modifier.padding(top = 35.dp) // Menambahkan jarak atas
             )
         }
     ) { padding ->
