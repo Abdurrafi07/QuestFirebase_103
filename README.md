@@ -24,3 +24,13 @@ Tampilan Fungsi Delete
 
 Tampilan HomeScreen setelah Delete Data
 ![image](https://github.com/user-attachments/assets/2fa0d300-4f0d-48e9-bf8e-67f8d50d66c9)
+
+UCP
+Tampilan HomeView
+![image](https://github.com/user-attachments/assets/4ef51f1c-09f9-4374-8942-cbb6eb685fcc)
+Tampilan Insert
+![image](https://github.com/user-attachments/assets/7b94fe21-533c-47d4-9af1-4a635456d846)
+FireStore Database
+![image](https://github.com/user-attachments/assets/f86410ab-27dc-4f08-8b11-22c7c61d6fb2)
+
+
