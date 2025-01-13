@@ -5,7 +5,7 @@ Tampilan Insert
 ![image](https://github.com/user-attachments/assets/6aef9146-5ca1-4d58-a71a-89f461bfef4c)
 
 Tampilan Validasi Input
-![image](https://github.com/user-attachments/assets/549f0400-3929-4349-9bca-3af12ad69f10)
+![image](https://github.com/user-attachments/assets/28fa5c86-2fbe-4400-80af-8efcf0f89a4a)
 
 Tampilan input data Pada Halaman Insert
 ![image](https://github.com/user-attachments/assets/75bb0a9a-785b-4fa9-8b86-5d067ef554de)
