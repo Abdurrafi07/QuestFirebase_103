@@ -259,7 +259,7 @@ fun FormMahsiswa(
             }
         }
         Text(
-            text = errorState.alamat ?: "",
+            text = errorState.kelas ?: "",
             color = Color.Red
         )
 
